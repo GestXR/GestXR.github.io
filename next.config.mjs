@@ -3,7 +3,8 @@ const nextConfig = {
   /* config options here */
   reactCompiler: true,
   output: 'export', // <=== enables static exports
-  distDir: 'build'
+  distDir: 'build',
+  images: { unoptimized: true }
 };
 
 export default nextConfig;
