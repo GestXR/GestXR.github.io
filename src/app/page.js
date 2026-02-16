@@ -8,7 +8,7 @@ export default function Home() {
         <Image src="/img/screen1.jpeg" alt="banner" priority width={1599} height={834} className="w-full opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/25 to-transparent"></div>
       </div>
-      <div id="banner" className="absolute w-full left-0 top-[700px] flex-grow">
+      <div id="banner" className="absolute w-full left-0 top-[800px] flex-grow">
         <Image src="/img/gest1.jpeg" alt="banner" priority width={1122} height={584} className="w-full opacity-60" />
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-zinc-950"></div>
       </div>
