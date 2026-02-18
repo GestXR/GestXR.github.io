@@ -5,26 +5,26 @@ export default function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans bg-zinc-950">
       <div id="banner" className="absolute w-full left-0 top-0 flex-grow">
-        <Image src="/img/screen1.jpeg" alt="banner" priority width={1599} height={834} className="w-full opacity-50" />
+        <Image src="/img/screen1.jpeg" alt="banner" priority width={1599} height={834} className="w-full h-[50vh] md:h-auto object-cover opacity-70" />
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/25 to-transparent"></div>
       </div>
-      <div id="banner" className="absolute w-full left-0 top-[800px] flex-grow">
-        <Image src="/img/gest1.jpeg" alt="banner" priority width={1122} height={584} className="w-full opacity-60" />
+      <div id="banner" className="absolute w-full left-0 top-[100vh] md:top-[800px] flex-grow">
+        <Image src="/img/gest1.jpeg" alt="banner" priority width={1122} height={584} className="w-full h-[75vh] md:h-auto object-cover opacity-70" />
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-zinc-950"></div>
       </div>
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-16 md:py-32 px-8 md:py-16 sm:items-start">
         <div id="ppal" className="flex flex-col">
-          <div className="absolute"></div>
           <div id="cabeza" className="pb-8 relative">
             <div className="pb-3">
-              <div>
+              <div className="absolute w-full h-full bg-black blur-xl opacity-25"></div>
+              <div className="relative">
                 <Typography sx={{ typography: { xs: "h2", sm: "h1" } }} className="text-shadow-lg/30">GEST<span className="text-blue-600">-</span>XR</Typography>
               </div>
-              <div className="pl-2">
+              <div className="pl-2 relative">
                 <Typography className="text-shadow-lg/30">Instrumento musical inmersivo basado en Realidad Extendida</Typography>
               </div>
             </div>
-            <div className="h-[2px] w-full bg-fuchsia-500"></div>
+            <div className="h-[2px] w-full bg-fuchsia-500 relative"></div>
           </div>
           <div id="cuerpo" className="relative flex flex-col gap-9">
             <div id="descripcion">
@@ -70,7 +70,7 @@ export default function Home() {
                 <Image src="/img/innova_slider.jpeg" alt="casco_vr" priority width={1066} height={406} className="rounded-xl" />
               </div>
               <div>
-                <Typography className="text-center">GEST-XR no es sólo un objeto instrumental, sino un <span className="text-fuchsia-400">ecosistema perceptivo-musical</span>.</Typography>
+                <Typography className="text-center text-shadow-lg/30">GEST-XR no es sólo un objeto instrumental, sino un <span className="text-fuchsia-400">ecosistema perceptivo-musical</span>.</Typography>
               </div>
               <div className="mt-4 flex flex-col gap-3 py-2 px-5 bg-black/50 rounded-xl">
                 <Typography fontWeight="bold" className="text-center">La experiencia se define por:</Typography>
