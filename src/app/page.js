@@ -1,25 +1,34 @@
-import { List, ListItem, Stack, Typography } from "@mui/material";
+import React from "react";
+import { Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import AnimationOnScroll from "./animationOnScroll";
+import { promises as fs } from 'fs';
+import path from 'path';
+import { sanitize } from "isomorphic-dompurify";
 
-export default function Home() {
+export default async function Home() {
+  const contenidoDir = path.join(process.cwd(), '/src/app');
+  const contenidoPath = path.join(contenidoDir, 'contenido.json');
+  const contenidoJSON = await fs.readFile(contenidoPath, 'utf8');
+  const c = JSON.parse(contenidoJSON);
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans bg-zinc-950">
       <div id="bg-images">
         <div id="bg1" className="absolute w-full left-0 top-0 flex-grow overflow-clip">
-          <Image src="/img/screen1.jpeg" alt="banner" priority width={1599} height={834} className="w-full h-[50vh] md:h-auto object-cover opacity-70 animate-[breathe_6000ms_ease-in-out_infinite,fade-in_2500ms_ease-in-out_both]" />
+          <Image src="/img/screen1.jpeg" alt="banner" priority width={1599} height={834} className="w-full h-[50vh] md:h-auto object-cover opacity-80 animate-[breathe_6000ms_ease-in-out_infinite,fade-in_2500ms_ease-in-out_both]" />
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/25 to-transparent"></div>
         </div>
         <div id="bg2" className="absolute w-full left-0 top-[110vh] md:top-[850px] flex-grow overflow-clip">
-          <Image src="/img/gest1.jpeg" alt="banner" priority width={1122} height={584} className="w-full h-[75vh] md:h-auto object-cover opacity-70 animate-[breathe_6000ms_ease-in-out_infinite]" />
+          <Image src="/img/gest1.jpeg" alt="banner" priority width={1122} height={584} className="w-full h-[75vh] md:h-auto object-cover opacity-80 animate-[breathe_6000ms_ease-in-out_infinite]" />
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-zinc-950"></div>
         </div>
         <div id="bg3" className="absolute w-full left-0 top-[230vh] md:top-[1700px] flex-grow overflow-clip">
-          <Image src="/img/screen1.jpeg" alt="banner" priority width={1599} height={834} className="w-full h-[75vh] md:h-auto object-cover opacity-70 animate-[breathe_6000ms_ease-in-out_infinite,fade-in_2500ms_ease-in-out_both]" />
+          <Image src="/img/screen1.jpeg" alt="banner" priority width={1599} height={834} className="w-full h-[75vh] md:h-auto object-cover opacity-80 animate-[breathe_6000ms_ease-in-out_infinite,fade-in_2500ms_ease-in-out_both]" />
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-zinc-950"></div>
         </div>
         <div id="bg4" className="absolute w-full left-0 top-[350vh] md:top-[2600px] flex-grow overflow-clip">
-          <Image src="/img/gest1.jpeg" alt="banner" priority width={1122} height={584} className="w-full h-[75vh] md:h-auto object-cover opacity-70 animate-[breathe_6000ms_ease-in-out_infinite]" />
+          <Image src="/img/gest1.jpeg" alt="banner" priority width={1122} height={584} className="w-full h-[75vh] md:h-auto object-cover opacity-80 animate-[breathe_6000ms_ease-in-out_infinite]" />
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-zinc-950"></div>
         </div>
       </div>
@@ -29,10 +38,10 @@ export default function Home() {
             <div>
               <div className="absolute w-full h-full bg-black blur-xl opacity-25"></div>
               <div className="relative">
-                <Typography sx={{ typography: { xs: "h2", sm: "h1" } }} className="text-shadow-lg/70">GEST<span className="text-blue-600">-</span>XR</Typography>
+                <Typography sx={{ typography: { xs: "h2", sm: "h1" } }} className="text-shadow-lg/70" dangerouslySetInnerHTML={{ __html: sanitize(c.inicio.titulo) }}></Typography>
               </div>
               <div className="pl-2 relative">
-                <Typography className="text-shadow-lg/70">Instrumento musical inmersivo basado en Realidad Extendida</Typography>
+                <Typography className="text-shadow-lg/70" dangerouslySetInnerHTML={{ __html: sanitize(c.inicio.subtitulo) }}></Typography>
               </div>
             </div>
             <div className="h-[2px] w-full bg-fuchsia-500 relative"></div>
@@ -40,7 +49,7 @@ export default function Home() {
           <div id="cuerpo" className="relative flex flex-col gap-9">
             <div id="descripcion">
               <Typography className="text-shadow-lg/70">
-                GEST-XR es un instrumento musical inmersivo basado en Realidad Extendida (XR) que integra interacción gestual en tiempo real, síntesis sonora digital y respuesta algorítmica inteligente dentro de un entorno espacial virtual envolvente.
+                {c.inicio.descripcion}
               </Typography>
             </div>
             <div id="video1" className="flex flex-col items-center">
@@ -57,33 +66,35 @@ export default function Home() {
               <Stack spacing={2}>
                 <div className="h-[2px] w-[4%] self-center bg-blue-500/50 animate-[pulse_3500ms_ease-in-out_infinite]"></div>
 
-                <div className="flex flex-col gap1 text-center md:text-left">
-                  <Typography variant="h6" fontWeight="bold" className="text-shadow-lg/70">Interfaz performativa tridimensional</Typography>
-                  <Typography className="text-shadow-lg/70">El gesto corporal (principalmente manos en seguimiento óptico) actúa como controlador continuo y discreto de eventos musicales</Typography>
-                </div>
+                {c.inicio.lista_1_items.map((item, i) => {
+                  let w;
+                  switch (i % 4) {
+                    case 0:
+                      w = 24;
+                      break;
+                    case 1:
+                      w = 42;
+                      break;
+                    case 2:
+                      w = 24;
+                      break;
+                    case 3:
+                      w = 4;
+                      break;
+                    default:
+                      w = 4;
+                  }
+                  return (
+                    <React.Fragment key={i}>
+                      <div className="flex flex-col gap1 text-center md:text-left">
+                        <Typography variant="h6" fontWeight="bold" className="text-shadow-lg/70" dangerouslySetInnerHTML={{ __html: sanitize(item.titulo) }}></Typography>
+                        <Typography className="text-shadow-lg/70" dangerouslySetInnerHTML={{ __html: sanitize(item.descripcion) }}></Typography>
+                      </div>
+                      <div className={`h-[2px] w-[${w}%] self-center bg-blue-500/50 animate-[pulse_${i % 5 == 0 ? "3000" : i % 5 == 1 ? "2500" : i % 5 == 2 ? "3123" : i % 5 == 3 ? "3623" : i % 5 == 4 && "3500"}ms_ease-in-out_infinite]`}></div>
+                    </React.Fragment>
+                  )
+                })}
 
-                <div className="h-[2px] w-[24%] self-center bg-blue-500/50 animate-[pulse_3000ms_ease-in-out_infinite]"></div>
-
-                <div className="flex flex-col gap1 text-center md:text-right">
-                  <Typography variant="h6" fontWeight="bold" className="text-shadow-lg/70">Motor de síntesis y espacialización sonora</Typography>
-                  <Typography className="text-shadow-lg/70">Es capaz de generar, transformar y distribuir sonido en un campo audiovisual inmersivo</Typography>
-                </div>
-
-                <div className="h-[2px] w-[42%] self-center bg-blue-500/50 animate-[pulse_2500ms_ease-in-out_infinite]"></div>
-
-                <div className="flex flex-col gap1 text-center md:text-left">
-                  <Typography variant="h6" fontWeight="bold" className="text-shadow-lg/70">Entorno perceptivo expandido</Typography>
-                  <Typography className="text-shadow-lg/70">La escena virtual (domo, objetos sonoros, visuales reactivos) constituye parte constitutiva del instrumento, no un mero soporte visual</Typography>
-                </div>
-
-                <div className="h-[2px] w-[24%] self-center bg-blue-500/50 animate-[pulse_3123ms_ease-in-out_infinite]"></div>
-
-                <div className="flex flex-col gap1 text-center md:text-right">
-                  <Typography variant="h6" fontWeight="bold" className="text-shadow-lg/70">Sistema interactivo adaptativo</Typography>
-                  <Typography className="text-shadow-lg/70">Registra la ejecución del intérprete, la formaliza como datos musicales y puede responder mediante procesos algorítmicos o de IA en diálogo temporal con el ejecutante</Typography>
-                </div>
-
-                <div className="h-[2px] w-[4%] self-center bg-blue-500/50 animate-[pulse_3623ms_ease-in-out_infinite]"></div>
               </Stack>
             </div>
             <div id="inmersion" className="flex flex-col gap-2">
@@ -98,49 +109,24 @@ export default function Home() {
                     <Image src="/img/innova_slider.jpeg" alt="casco_vr" priority width={1066} height={406} className="rounded-xl" />
                   </div>
                   <div>
-                    <Typography variant="subtitle2" className="text-center text-shadow-lg/70 italic">GEST-XR no es sólo un objeto instrumental, sino un <span className="text-fuchsia-400">ecosistema perceptivo-musical</span>.</Typography>
+                    <Typography variant="subtitle2" className="text-center text-shadow-lg/70 italic" dangerouslySetInnerHTML={{ __html: sanitize(c.inicio.epigrafe_foto_1) }}></Typography>
                   </div>
                 </div>
               </AnimationOnScroll>
               <div className="mt-4 flex flex-col gap-3 py-5 px-3 bg-black/50 rounded-xl">
-                <Typography fontWeight="bold" className="text-center text-shadow-lg/70">La experiencia se define por:</Typography>
+                <Typography fontWeight="bold" className="text-center text-shadow-lg/70" dangerouslySetInnerHTML={{ __html: sanitize(c.inicio.lista_2.titulo) }}></Typography>
                 <Stack gap={1}>
-                  <div className="flex items-start">
-                    <div className="flex items-center m-2">
-                      <div className="w-[6px] h-[6px] shrink-0 rounded-full bg-blue-600"></div>
-                      <div className="absolute w-[10px] h-[10px] translate-x-[-25%] rounded-full bg-blue-600 animate-pulse"></div>
-                    </div>
-                    <Typography className="text-shadow-lg/70">
-                      Co-presencia del espacio físico (passthrough XR) y el espacio virtual reactivo
-                    </Typography>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="flex items-center m-2">
-                      <div className="w-[6px] h-[6px] shrink-0 rounded-full bg-blue-600"></div>
-                      <div className="absolute w-[10px] h-[10px] translate-x-[-25%] rounded-full bg-blue-600 animate-pulse"></div>
-                    </div>
-                    <Typography className="text-shadow-lg/70">
-                      Integración entre gesto, sonido y visualización en tiempo real
-                    </Typography>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="flex items-center m-2">
-                      <div className="w-[6px] h-[6px] shrink-0 rounded-full bg-blue-600"></div>
-                      <div className="absolute w-[10px] h-[10px] translate-x-[-25%] rounded-full bg-blue-600 animate-pulse"></div>
-                    </div>
-                    <Typography className="text-shadow-lg/70">
-                      Continuidad entre acción corporal y transformación del entorno audiovisual
-                    </Typography>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="flex items-center m-2">
-                      <div className="w-[6px] h-[6px] shrink-0 rounded-full bg-blue-600"></div>
-                      <div className="absolute w-[10px] h-[10px] translate-x-[-25%] rounded-full bg-blue-600 animate-pulse"></div>
-                    </div>
-                    <Typography className="text-shadow-lg/70">
-                      Sensación de “habitar” el instrumento: el intérprete se sitúa dentro del campo sonoro y visual que él mismo genera
-                    </Typography>
-                  </div>
+                  {c.inicio.lista_2.items.map((item, i) => (
+                    <React.Fragment key={i}>
+                      <div className="flex items-start">
+                        <div className="flex items-center m-2">
+                          <div className="w-[6px] h-[6px] shrink-0 rounded-full bg-blue-600"></div>
+                          <div className="absolute w-[10px] h-[10px] translate-x-[-25%] rounded-full bg-blue-600 animate-pulse"></div>
+                        </div>
+                        <Typography className="text-shadow-lg/70" dangerouslySetInnerHTML={{ __html: sanitize(item) }}></Typography>
+                      </div>
+                    </React.Fragment>
+                  ))}
                 </Stack>
               </div>
             </div>
@@ -157,20 +143,22 @@ export default function Home() {
             <div id="about">
               <Stack gap={3}>
                 <Stack gap={1.5}>
-                  <Typography sx={{ typography: { xs: "h4", sm: "h3" } }} className="text-shadow-lg/70">Acerca de</Typography>
+                  <Typography sx={{ typography: { xs: "h4", sm: "h3" } }} className="text-shadow-lg/70">{c.acerca_de.titulo}</Typography>
                   <div className="h-[2px] w-full bg-fuchsia-500 relative"></div>
                 </Stack>
                 <Stack gap={2}>
                   <Stack>
+                    {c.acerca_de.parrafos.map((item, i) => {
+                      const sanitizedHTML = sanitize(item);
+                      return (
+                        <React.Fragment key={i}>
+                          <Typography sx={{ textIndent: { xs: "0", md: "2em" } }} className="text-shadow-lg/70" dangerouslySetInnerHTML={{ __html: sanitizedHTML }}></Typography>
+                        </React.Fragment>
+                      )
+                    })}
                     {/* <Typography sx={{ textIndent: { xs: "0", md: "2em" } }} className="text-shadow-lg/70">GEST-XR surge como fruto de un proyecto de investigación impulsado a través del <a href="https://artes.unc.edu.ar/centros/centros-de-transferencia/laboratorio-de-electroacustica-e-informatica-musical-l-e-i-m/" target="_blank">LEIM</a>, en la Facultad de Artes de la Universidad Nacional de Córdoba.</Typography>
                     <br></br> */}
                     {/* <Typography sx={{ textIndent: { xs: "0", md: "2em" } }} className="text-shadow-lg/70">El equipo interdisciplinario de investigación, conformado por estudiantes y docentes de la institución, se dedica a explorar las posibilidades de las tecnologías de realidad virtual y extendida para el desarrollo de experiencias narrativas interactivas, interfaces innovadoras y sistemas de audio en tiempo real orientados a la composición e interpretación musical.</Typography> */}
-                    <Typography sx={{ textIndent: { xs: "0", md: "2em" } }} className="text-shadow-lg/70">
-                      GEST-XR es un desarrollo realizado por PerceptionXR Studio, una startup con base en Barcelona—España y Córdoba—Argentina conformada por un equipo interdisciplinario de artistas y desarrolladores.
-                    </Typography>
-                    <Typography sx={{ textIndent: { xs: "0", md: "2em" } }} className="text-shadow-lg/70">
-                      La primera versión de GEST para VR fue <span className="text-fuchsia-400">ganadora del segundo premio</span> de la novena edición de Exposición de proyectos de investigación aplicada y productos innovadores (UNC Innova).
-                    </Typography>
                   </Stack>
                   {/* <AnimationOnScroll
                     className="group overflow-clip md:overflow-visible"
@@ -190,28 +178,28 @@ export default function Home() {
                   {/* <Typography sx={{ textIndent: { xs: "0", md: "2em" } }} className="text-shadow-lg/70">El proyecto continuó su desarrollo, sumando el apoyo de particulares y empresas fuera de la institución, e incorporando el uso de la realidad extendida (en su primera versión era un desarrollo exlusivamente VR).</Typography> */}
                   <div className="h-[2px] w-[50%] self-center bg-blue-500/50 animate-[pulse_3500ms_ease-in-out_infinite]"></div>
                   <Stack gap={0.5}>
-                    <Typography variant="h6" className="text-shadow-lg/70">
-                      Equipo de trabajo:
-                    </Typography>
+                    <Typography variant="h6" className="text-shadow-lg/70">{c.acerca_de.equipo.titulo}:</Typography>
                     <Stack>
-                      <Typography className="text-shadow-lg/70"><span className="font-bold">Dirección general y programación</span>: Sergio Patricio Poblete Barbero</Typography>
-                      <Typography className="text-shadow-lg/70"><span className="font-bold">Programación, diseño 3D, diseño web y comunicación</span>: Dylan Martin</Typography>
-                      <Typography className="text-shadow-lg/70"><span className="font-bold">Diseño de sonido y UI/UX</span>: Dante Demarchi Oliveira</Typography>
-                      <Typography className="text-shadow-lg/70"><span className="font-bold">Música y SFX</span>: Marty Rolan</Typography>
-                      <Typography className="text-shadow-lg/70"><span className="font-bold">Música y sonorización general</span>: Nahir Dahbar</Typography>
-                      <Typography className="text-shadow-lg/70"><span className="font-bold">Música</span>: Emiliano Díaz</Typography>
-                      <Typography className="text-shadow-lg/70"><span className="font-bold">Asesoría técnico-musical</span>: David Gallello</Typography>
-                      <Typography className="text-shadow-lg/70"><span className="font-bold">Planeación y control/testeo del sistema de audio</span>: Mara Blasco</Typography>
+                      {c.acerca_de.equipo.items.map((item, i) => {
+                        return (
+                          <React.Fragment key={i}>
+                            <Typography className="text-shadow-lg/70"><span className="font-bold">{item.rol}</span>: {item.nombre}</Typography>
+                          </React.Fragment>
+                        )
+                      })}
                     </Stack>
                   </Stack>
                   <div className="h-[2px] w-[50%] self-center bg-blue-500/50 animate-[pulse_3623ms_ease-in-out_infinite]"></div>
                   <Stack gap={0.5}>
-                    <Typography variant="h6" className="text-shadow-lg/70">
-                      Empresas colaboradoras:
-                    </Typography>
+                    <Typography variant="h6" className="text-shadow-lg/70">{c.acerca_de.empresas.titulo}:</Typography>
                     <Stack>
-                      <Typography className="text-shadow-lg/70"><span className="font-bold">Diseño gráfico en Unreal Engine</span>: RollBox Games - Barcelona - España</Typography>
-                      <Typography className="text-shadow-lg/70"><span className="font-bold">Programación, diseño 3D, diseño web y comunicación</span>: BB Studio Games - Córdoba - Argentina</Typography>
+                      {c.acerca_de.empresas.items.map((item, i) => {
+                        return (
+                          <React.Fragment key={i}>
+                            <Typography className="text-shadow-lg/70"><span className="font-bold">{item.rol}</span>: {item.nombre}</Typography>
+                          </React.Fragment>
+                        )
+                      })}
                     </Stack>
                   </Stack>
                 </Stack>

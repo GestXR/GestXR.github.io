@@ -1,0 +1,92 @@
+{
+  "inicio": {
+    "titulo": "GEST<span class=\"text-blue-600\">-</span>XR",
+    "subtitulo": "Instrumento musical inmersivo basado en Realidad Extendida",
+    "descripcion": "GEST-XR es un instrumento musical inmersivo basado en Realidad Extendida (XR) que integra interacción gestual en tiempo real, síntesis sonora digital y respuesta algorítmica inteligente dentro de un entorno espacial virtual envolvente.",
+    "lista_1_items": [
+      {
+        "titulo": "Interfaz performativa tridimensional",
+        "descripcion": "El gesto corporal (principalmente manos en seguimiento óptico) actúa como controlador continuo y discreto de eventos musicales"
+      },
+      {
+        "titulo": "Motor de síntesis y espacialización sonora",
+        "descripcion": "Es capaz de generar, transformar y distribuir sonido en un campo audiovisual inmersivo"
+      },
+      {
+        "titulo": "Entorno perceptivo expandido",
+        "descripcion": "La escena virtual (domo, objetos sonoros, visuales reactivos) constituye parte constitutiva del instrumento, no un mero soporte visual"
+      },
+      {
+        "titulo": "Sistema interactivo adaptativo",
+        "descripcion": "Registra la ejecución del intérprete, la formaliza como datos musicales y puede responder mediante procesos algorítmicos o de IA en diálogo temporal con el ejecutante"
+      }
+    ],
+    "epigrafe_foto_1": "GEST-XR no es sólo un objeto instrumental, sino un <span class=\"text-fuchsia-400\">ecosistema perceptivo-musical</span>.",
+    "lista_2": {
+      "titulo": "La experiencia se define por:",
+      "items": [
+        "Co-presencia del espacio físico (passthrough XR) y el espacio virtual reactivo",
+        "Integración entre gesto, sonido y visualización en tiempo real",
+        "Continuidad entre acción corporal y transformación del entorno audiovisual",
+        "Sensación de “habitar” el instrumento: el intérprete se sitúa dentro del campo sonoro y visual que él mismo genera"
+      ]
+    }
+  },
+  "acerca_de": {
+    "titulo": "Acerca de",
+    "parrafos": [
+      "GEST-XR es un desarrollo realizado por PerceptionXR Studio, una startup con base en Barcelona—España y Córdoba—Argentina conformada por un equipo interdisciplinario de artistas y desarrolladores.",
+      "La primera versión de GEST para VR fue <a href=\"https://www.unc.edu.ar/comunicaci%C3%B3n/unc-innova-ya-tiene-sus-proyectos-ganadores\" target=\"_blank\">ganadora del segundo premio</a> de la novena edición de Exposición de proyectos de investigación aplicada y productos innovadores (UNC Innova)."
+    ],
+    "equipo": {
+      "titulo": "Equipo de trabajo",
+      "items": [
+        {
+          "rol": "Dirección general y programación",
+          "nombre": "Sergio Patricio Poblete Barbero"
+        },
+        {
+          "rol": "Programación, diseño 3D, diseño web y comunicación",
+          "nombre": "Dylan Martin"
+        },
+        {
+          "rol": "Diseño de sonido y UI/UX",
+          "nombre": "Dante Demarchi Oliveira"
+        },
+        {
+          "rol": "Planeación y control/testeo del sistema de audio",
+          "nombre": "Mara Blasco"
+        },
+        {
+          "rol": "Música y SFX",
+          "nombre": "Marty Rolan"
+        },
+        {
+          "rol": "Música y sonorización general",
+          "nombre": "Nahir Dahbar"
+        },
+        {
+          "rol": "Música",
+          "nombre": "Emiliano Díaz"
+        },
+        {
+          "rol": "Asesoría técnico-musical",
+          "nombre": "David Gallello"
+        }
+      ]
+    },
+    "empresas": {
+      "titulo": "Empresas colaboradoras",
+      "items": [
+        {
+          "rol": "Diseño gráfico en Unreal Engine",
+          "nombre": "RollBox Games - Barcelona - España"
+        },
+        {
+          "rol": "Programación, diseño 3D, diseño web y comunicación",
+          "nombre": "BB Studio Games - Córdoba - Argentina"
+        }
+      ]
+    }
+  }
+}
