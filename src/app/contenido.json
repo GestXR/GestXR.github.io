@@ -1,28 +1,50 @@
 {
-  "inicio": {
-    "titulo": "GEST<span class=\"text-blue-600\">-</span>XR",
-    "subtitulo": "Instrumento musical inmersivo basado en Realidad Extendida",
-    "descripcion": "GEST-XR es un instrumento musical inmersivo basado en Realidad Extendida (XR) que integra interacción gestual en tiempo real, síntesis sonora digital y respuesta algorítmica inteligente dentro de un entorno espacial virtual envolvente.",
-    "lista_1_items": [
-      {
-        "titulo": "Interfaz performativa tridimensional",
-        "descripcion": "El gesto corporal (principalmente manos en seguimiento óptico) actúa como controlador continuo y discreto de eventos musicales"
-      },
-      {
-        "titulo": "Motor de síntesis y espacialización sonora",
-        "descripcion": "Es capaz de generar, transformar y distribuir sonido en un campo audiovisual inmersivo"
-      },
-      {
-        "titulo": "Entorno perceptivo expandido",
-        "descripcion": "La escena virtual (domo, objetos sonoros, visuales reactivos) constituye parte constitutiva del instrumento, no un mero soporte visual"
-      },
-      {
-        "titulo": "Sistema interactivo adaptativo",
-        "descripcion": "Registra la ejecución del intérprete, la formaliza como datos musicales y puede responder mediante procesos algorítmicos o de IA en diálogo temporal con el ejecutante"
-      }
-    ],
-    "epigrafe_foto_1": "GEST-XR no es sólo un objeto instrumental, sino un <span class=\"text-fuchsia-400\">ecosistema perceptivo-musical</span>.",
-    "lista_2": {
+  "inicio": [
+    {
+      "tipo": "titulo-principal",
+      "titulo": "GEST<span class=\"text-blue-600\">-</span>XR",
+      "subtitulo": "Instrumento musical inmersivo basado en Realidad Extendida"
+    },
+    {
+      "tipo": "texto-comun",
+      "contenido": "GEST-XR es un instrumento musical inmersivo basado en Realidad Extendida (XR) que integra interacción gestual en tiempo real, síntesis sonora digital y respuesta algorítmica inteligente dentro de un entorno espacial virtual envolvente."
+    },
+    {
+      "tipo": "video",
+      "fuente": "https://www.youtube.com/embed/1X8CLH9xg5o?si=9p4p6ztgjEfEnfkn",
+      "nombre": "Demo 1"
+    },
+    {
+      "tipo": "lista-con-titulos",
+      "items": [
+        {
+          "titulo": "Interfaz performativa tridimensional",
+          "descripcion": "El gesto corporal (principalmente manos en seguimiento óptico) actúa como controlador continuo y discreto de eventos musicales"
+        },
+        {
+          "titulo": "Motor de síntesis y espacialización sonora",
+          "descripcion": "Es capaz de generar, transformar y distribuir sonido en un campo audiovisual inmersivo"
+        },
+        {
+          "titulo": "Entorno perceptivo expandido",
+          "descripcion": "La escena virtual (domo, objetos sonoros, visuales reactivos) constituye parte constitutiva del instrumento, no un mero soporte visual"
+        },
+        {
+          "titulo": "Sistema interactivo adaptativo",
+          "descripcion": "Registra la ejecución del intérprete, la formaliza como datos musicales y puede responder mediante procesos algorítmicos o de IA en diálogo temporal con el ejecutante"
+        }
+      ]
+    },
+    {
+      "tipo": "imagen",
+      "fuente": "/img/innova_slider.jpeg",
+      "w": "1066",
+      "h": "406",
+      "alt": "Casco VR",
+      "epigrafe": "GEST-XR no es sólo un objeto instrumental, sino un <span class=\"text-fuchsia-400\">ecosistema perceptivo-musical</span>."
+    },
+    {
+      "tipo": "lista-bullet",
       "titulo": "La experiencia se define por:",
       "items": [
         "Co-presencia del espacio físico (passthrough XR) y el espacio virtual reactivo",
@@ -30,63 +52,87 @@
         "Continuidad entre acción corporal y transformación del entorno audiovisual",
         "Sensación de “habitar” el instrumento: el intérprete se sitúa dentro del campo sonoro y visual que él mismo genera"
       ]
-    }
-  },
-  "acerca_de": {
-    "titulo": "Acerca de",
-    "parrafos": [
-      "GEST-XR es un desarrollo realizado por PerceptionXR Studio, una startup con base en Barcelona—España y Córdoba—Argentina conformada por un equipo interdisciplinario de artistas y desarrolladores.",
-      "La primera versión de GEST para VR fue <a href=\"https://www.unc.edu.ar/comunicaci%C3%B3n/unc-innova-ya-tiene-sus-proyectos-ganadores\" target=\"_blank\">ganadora del segundo premio</a> de la novena edición de Exposición de proyectos de investigación aplicada y productos innovadores (UNC Innova)."
-    ],
-    "equipo": {
-      "titulo": "Equipo de trabajo",
+    },
+    {
+      "tipo": "video",
+      "fuente": "https://www.youtube.com/embed/FbBA3j8sBTo?si=hDtJvSHVtuThBvoV",
+      "nombre": "Demo 2"
+    },
+    {
+      "tipo": "titulo",
+      "contenido": "Acerca de"
+    },
+    {
+      "tipo": "texto-parrafo",
+      "contenido": "GEST-XR es un desarrollo realizado por PerceptionXR Studio, una startup con base en Barcelona—España y Córdoba—Argentina conformada por un equipo interdisciplinario de artistas y desarrolladores."
+    },
+    {
+      "tipo": "texto-parrafo",
+      "contenido": "La primera versión de GEST para VR fue <a href=\"https://www.unc.edu.ar/comunicaci%C3%B3n/unc-innova-ya-tiene-sus-proyectos-ganadores\" target=\"_blank\">ganadora del segundo premio</a> de la novena edición de Exposición de proyectos de investigación aplicada y productos innovadores (UNC Innova)."
+    },
+    {
+      "tipo": "separador"
+    },
+    {
+      "tipo": "subtitulo",
+      "contenido": "Equipo de trabajo:"
+    },
+    {
+      "tipo": "lista-negrita",
       "items": [
         {
-          "rol": "Dirección general y programación",
-          "nombre": "Sergio Patricio Poblete Barbero"
+          "nombre": "Dirección general y programación",
+          "descripcion": "Sergio Patricio Poblete Barbero"
         },
         {
-          "rol": "Programación, diseño 3D, diseño web y comunicación",
-          "nombre": "Dylan Martin"
+          "nombre": "Programación, diseño 3D, diseño web y comunicación",
+          "descripcion": "Dylan Martin"
         },
         {
-          "rol": "Diseño de sonido y UI/UX",
-          "nombre": "Dante Demarchi Oliveira"
+          "nombre": "Diseño de sonido y UI/UX",
+          "descripcion": "Dante Demarchi Oliveira"
         },
         {
-          "rol": "Planeación y control/testeo del sistema de audio",
-          "nombre": "Mara Blasco"
+          "nombre": "Planeación y control/testeo del sistema de audio",
+          "descripcion": "Mara Blasco"
         },
         {
-          "rol": "Música y SFX",
-          "nombre": "Marty Rolan"
+          "nombre": "Música y SFX",
+          "descripcion": "Marty Rolan"
         },
         {
-          "rol": "Música y sonorización general",
-          "nombre": "Nahir Dahbar"
+          "nombre": "Música y sonorización general",
+          "descripcion": "Nahir Dahbar"
         },
         {
-          "rol": "Música",
-          "nombre": "Emiliano Díaz"
+          "nombre": "Música",
+          "descripcion": "Emiliano Díaz"
         },
         {
-          "rol": "Asesoría técnico-musical",
-          "nombre": "David Gallello"
+          "nombre": "Asesoría técnico-musical",
+          "descripcion": "David Gallello"
         }
       ]
     },
-    "empresas": {
-      "titulo": "Empresas colaboradoras",
+    {
+      "tipo": "separador"
+    },
+    {
+      "tipo": "subtitulo",
+      "contenido": "Empresas colaboradoras:"
+    },
+    {
+      "tipo": "lista-negrita",
       "items": [
         {
-          "rol": "Diseño gráfico en Unreal Engine",
-          "nombre": "RollBox Games - Barcelona - España"
+          "nombre": "Diseño gráfico en Unreal Engine",
+          "descripcion": "RollBox Games - Barcelona - España"
         },
         {
-          "rol": "Programación, diseño 3D, diseño web y comunicación",
-          "nombre": "BB Studio Games - Córdoba - Argentina"
+          "nombre": "Programación, diseño 3D, diseño web y comunicación",
+          "descripcion": "BB Studio Games - Córdoba - Argentina"
         }
       ]
     }
-  }
+  ]
 }
